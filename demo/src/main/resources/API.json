@@ -1,0 +1,16 @@
+{
+   "Student": [
+    
+      {
+         "StudentId"   :  "1001",
+         "StudentName" :  "Petko",
+         "Course"   :  "Java"
+      },
+    
+      {
+         "StudentId"   :  "1002",
+         "StudentName" :  "Petka",
+         "Course"   :  "Advanced Java"
+      }
+   ]
+}
