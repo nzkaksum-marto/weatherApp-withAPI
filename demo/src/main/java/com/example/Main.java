@@ -1,6 +1,7 @@
 package com.example;
 
-import java.io.File;
+import java.io.InputStream;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Main {
@@ -8,8 +9,11 @@ public class Main {
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            File file = new File("demo/src/main/resources/API.json");
-            StudentList studentList = objectMapper.readValue(file, StudentList.class);
+            InputStream inputStream = Main.class.getClassLoader().getResourceAsStream("API.json");
+            if (inputStream == null) {
+                throw new RuntimeException("API.json not found in resources!");
+            }
+            StudentList studentList = objectMapper.readValue(inputStream, StudentList.class);
             for (Student student : studentList.getStudent()) {
                 System.out.print("  Student name: " + student.getStudentName());
                 System.out.print("  Student ID: " + student.getStudentId());
